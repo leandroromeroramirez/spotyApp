@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 // RUTAS
 import { APP_ROUTING } from "./app.routes";
@@ -21,7 +22,8 @@ import { NavbarComponent } from './share/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    HttpModule
   ],
   providers: [
     SpotifyService

@@ -38,11 +38,12 @@
                             <img [src]="c.album?.images | sinfoto" class="img-fluid img-thumbnail img-50">
                           </td>
                           <td>{{ c.name }}</td>
-                          <td>{{ c.popularity }}</td>}
+                          <td>{{ c.popularity }}</td>
                           <td>
-                            <audio controls>
+                            <!-- <audio controls>
                               <source [src]="c.uri">
-                            </audio>
+                            </audio> -->
+                            <iframe [src]="c.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
                           </td>
                         </tr>
                         

@@ -1,0 +1,58 @@
+ <div *ngIf="artista">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img class="img-thumbnail img-circle" [src]="artista.images | sinfoto" [alt]="artista.name">
+            <br>
+        </div>
+        <div class="col-md-9">
+          <h3>{{ artista.name}} <small>Popularidad {{ artista.popularity }}</small></h3>
+          <hr>
+          <a [href]="artista.external_urls?.spotify"
+          class="btn btn-outline-success">Ver página</a>
+          <a [routerLink]="['/buscar']"
+          class="btn btn-outline-danger">Regresar</a>
+        </div>
+       </div>
+      </div>
+
+      <div *ngIf="top" class="container">
+          <h3>Top Tracks {{ artista.name }}</h3>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive">
+                  <table class="table">
+                      <thead class="thead-inverse">
+                        <tr>
+                          <th>#</th>
+                          <th>Album</th>
+                          <th>Cancion</th>
+                          <th>Popularidad</th>
+                          <th>Preview</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let c of top; let i = index">
+                          <td>{{i +1}}</td>
+                          <td>
+                            <img [src]="c.album?.images | sinfoto" class="img-fluid img-thumbnail img-50">
+                          </td>
+                          <td>{{ c.name }}</td>
+                          <td>{{ c.popularity }}</td>
+                          <td>
+                            <audio controls>
+                              <source [src]="c.uri">
+                            </audio>
+                          </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+          </div>
+      </div>      
+      
+      
+
+ 
